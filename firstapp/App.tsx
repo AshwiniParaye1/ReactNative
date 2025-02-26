@@ -6,18 +6,6 @@ const App = () => {
       <View style={styles.box1} />
       <View style={styles.box2} />
       <View style={styles.box3} />
-      <View style={styles.box1} />
-      <View style={styles.box2} />
-      <View style={styles.box3} />
-      <View style={styles.box1} />
-      <View style={styles.box2} />
-      <View style={styles.box3} />
-      <View style={styles.box1} />
-      <View style={styles.box2} />
-      <View style={styles.box3} />
-      <View style={styles.box1} />
-      <View style={styles.box2} />
-      <View style={[styles.box3, {backgroundColor: 'blue'}]} />
     </View>
   );
 };
@@ -29,21 +17,18 @@ const styles = StyleSheet.create({
     paddingTop: 50,
     flex: 1,
     backgroundColor: 'black',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    flexWrap: 'wrap',
+    flexDirection: 'row',
   },
   box1: {
     width: 80,
     height: 80,
     backgroundColor: 'red',
-    // alignSelf: 'flex-start',
   },
   box2: {
     width: 80,
     height: 80,
     backgroundColor: 'yellow',
+    flexGrow: 1,
   },
   box3: {
     width: 80,
