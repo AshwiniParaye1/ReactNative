@@ -1,52 +1,33 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+
 import React, {useState} from 'react';
 import {Button, StyleSheet, Text, TextInput, View} from 'react-native';
+import Home from './src/screens/Home';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Profile from './src/screens/Profile';
+import Search from './src/screens/Search';
+import {NavigationContainer} from '@react-navigation/native';
+
+const Stack = createNativeStackNavigator();
+
+const StackNavigator = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={Home} />
+      <Stack.Screen name="Profile" component={Profile} />
+      <Stack.Screen name="Search" component={Search} />
+    </Stack.Navigator>
+  );
+};
 
 const App = () => {
-  const [text, setText] = useState('');
-
-  const [submittedText, setSubmittedText] = useState('');
-
-  const handleSubmit = () => {
-    setSubmittedText(text);
-    setText('');
-  };
-
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Hey, Native People</Text>
-
-      <TextInput
-        placeholder="Enter your name..."
-        style={styles.input}
-        value={text}
-        onChangeText={setText}
-      />
-
-      <Button title="Submit" onPress={handleSubmit} />
-
-      {submittedText && <Text>Result: {submittedText}</Text>}
-    </View>
+    <NavigationContainer>
+      <StackNavigator />
+    </NavigationContainer>
   );
 };
 
 export default App;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-    gap: 10,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: '500',
-  },
-  input: {
-    width: '100%',
-    padding: 10,
-    borderWidth: 1,
-    borderRadius: 5,
-  },
-});
+const styles = StyleSheet.create({});
