@@ -19,7 +19,7 @@ const AllItems = ({data}) => {
             style={[
               styles.itemContainer,
               {
-                backgroundColor: item.stock <= 20 && '#ffcccc',
+                backgroundColor: item.stock <= 20 ? '#ffcccc' : '#ccf4cc',
                 borderWidth: 1,
                 marginBottom: 10,
                 borderRadius: 5,

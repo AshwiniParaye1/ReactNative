@@ -3,31 +3,30 @@ import React, {useState} from 'react';
 import AllItems from './AllItems';
 import Create from './Create';
 
-export const data = [
-  {id: 1, name: 'Apple', stock: 10, unit: 'kg'},
-  {id: 2, name: 'Banana', stock: 2, unit: 'dozen'},
-  {id: 3, name: 'Milk', stock: 20, unit: 'liters'},
-  {id: 4, name: 'Eggs', stock: 300, unit: 'pieces'},
-  {id: 5, name: 'Rice', stock: 200, unit: 'kg'},
-  {id: 6, name: 'Wheat Flour', stock: 150, unit: 'kg'},
-  {id: 7, name: 'Sugar', stock: 80, unit: 'kg'},
-  {id: 8, name: 'Salt', stock: 60, unit: 'kg'},
-  {id: 9, name: 'Tea', stock: 15, unit: 'kg'},
-  {id: 10, name: 'Coffee', stock: 15, unit: 'kg'},
-  {id: 11, name: 'Cooking Oil', stock: 100, unit: 'liters'},
-  {id: 12, name: 'Lentils', stock: 120, unit: 'kg'},
-  {id: 13, name: 'Spices', stock: 40, unit: 'kg'},
-  {id: 14, name: 'Potato', stock: 12, unit: 'kg'},
-  {id: 15, name: 'Onion', stock: 85, unit: 'kg'},
-  {id: 16, name: 'Tomato', stock: 70, unit: 'kg'},
-  {id: 17, name: 'Butter', stock: 25, unit: 'kg'},
-  {id: 18, name: 'Cheese', stock: 20, unit: 'kg'},
-  {id: 19, name: 'Bread', stock: 50, unit: 'loaves'},
-  {id: 20, name: 'Biscuits', stock: 100, unit: 'packets'},
-];
-
 const Home = () => {
   const [view, setView] = useState(0);
+  const [data, setdata] = useState([
+    {id: 1, name: 'Apple', stock: 10, unit: 'kg'},
+    {id: 2, name: 'Banana', stock: 2, unit: 'dozen'},
+    {id: 3, name: 'Milk', stock: 20, unit: 'liters'},
+    {id: 4, name: 'Eggs', stock: 300, unit: 'pieces'},
+    {id: 5, name: 'Rice', stock: 200, unit: 'kg'},
+    {id: 6, name: 'Wheat Flour', stock: 150, unit: 'kg'},
+    {id: 7, name: 'Sugar', stock: 80, unit: 'kg'},
+    {id: 8, name: 'Salt', stock: 60, unit: 'kg'},
+    {id: 9, name: 'Tea', stock: 15, unit: 'kg'},
+    {id: 10, name: 'Coffee', stock: 15, unit: 'kg'},
+    {id: 11, name: 'Cooking Oil', stock: 100, unit: 'liters'},
+    {id: 12, name: 'Lentils', stock: 120, unit: 'kg'},
+    {id: 13, name: 'Spices', stock: 40, unit: 'kg'},
+    {id: 14, name: 'Potato', stock: 12, unit: 'kg'},
+    {id: 15, name: 'Onion', stock: 85, unit: 'kg'},
+    {id: 16, name: 'Tomato', stock: 70, unit: 'kg'},
+    {id: 17, name: 'Butter', stock: 25, unit: 'kg'},
+    {id: 18, name: 'Cheese', stock: 20, unit: 'kg'},
+    {id: 19, name: 'Bread', stock: 50, unit: 'loaves'},
+    {id: 20, name: 'Biscuits', stock: 100, unit: 'packets'},
+  ]);
 
   return (
     <View style={styles.container}>
@@ -92,7 +91,7 @@ const Home = () => {
 
       {view === 0 && <AllItems data={data} />}
       {view === 1 && <AllItems data={data.filter(item => item.stock <= 20)} />}
-      {view === 2 && <Create />}
+      {view === 2 && <Create data={data} setdata={setdata} />}
     </View>
   );
 };
