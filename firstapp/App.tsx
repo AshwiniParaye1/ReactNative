@@ -12,10 +12,26 @@ const Stack = createNativeStackNavigator();
 
 const StackNavigator = () => {
   return (
-    <Stack.Navigator>
-      <Stack.Screen name="Home" component={Home} />
-      <Stack.Screen name="Profile" component={Profile} />
-      <Stack.Screen name="Search" component={Search} />
+    <Stack.Navigator initialRouteName="Home">
+      <Stack.Screen
+        name="Search"
+        component={Search}
+        options={{headerShown: false}}
+      />
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        // options={{headerShown: false}}
+        options={{
+          title: 'Home Screen',
+          headerStyle: {backgroundColor: 'pink'},
+        }}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{headerShown: false}}
+      />
     </Stack.Navigator>
   );
 };

@@ -17,7 +17,7 @@ const Home = ({navigation}) => {
       </Text>
       <Button
         title="Visit Profile"
-        onPress={() => navigation.navigate('Profile')}
+        onPress={() => navigation.navigate('Profile', {id: 1, name: 'Ashwini'})}
       />
     </View>
   );
